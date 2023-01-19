@@ -2,6 +2,7 @@
 
 function elfee_theme_supports() {
     add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
 }
 
 function elfee_register_assets() {
