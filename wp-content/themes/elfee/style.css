@@ -2,9 +2,53 @@
 Theme Name: Elfée
 */
 
+:root {
+    --main-background: #616C50;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: var(--main-background);
+    color: white;
+    font-family: 'Khula', 'Arial', sans-serif;
+}
+ul, ol, li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+img {
+    width: 100%;
+    vertical-align: bottom;
+}
+
 .wrap {
-    max-width: 900px;
+    /* max-width: 900px; */
     width: 100%;
     margin: 0 auto;
     /* border: 1px solid black; */
 }
+
+/* HOMEPAGE */
+.title_homepage {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+article {
+    border: 1px solid red;
+}
+div {
+    border: 1px solid blue;
+}
+
