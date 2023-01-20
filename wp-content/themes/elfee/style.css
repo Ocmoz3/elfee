@@ -10,6 +10,7 @@ Theme Name: Elfée
     --brown-contact: #AB631C;
     --yellow-legals: #FFD600;
     --yellow_elfee: #F4B113;
+    --font: #56565C;
 }
 
 /* RESET */
@@ -53,8 +54,11 @@ img {
     padding: 1rem 0;
 }
 
-.a_title_homepage {
+.a_title_homepage.massage {
     border-bottom: 3px solid var(--orange-massage);
+}
+.a_title_homepage.reflexology {
+    border-bottom: 3px solid var(--green-reflexology);
 }
 
 .icone_homepage {
@@ -62,3 +66,10 @@ img {
     margin: 2em auto;
 }
 
+.card_homepage {
+    width: 80%;
+    margin: 1.5rem auto;
+    background-color: white;
+    color: var(--font);
+    padding: 1.5em;
+}
