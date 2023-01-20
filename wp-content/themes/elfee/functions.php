@@ -28,14 +28,21 @@ add_filter('document_title_parts', 'elfee_document_title_parts');
 
 // Fonctions
 // Récupère l'image correspondante à l'article sur Homepage
-function get_img() {
+function elfee_get_img() {
     if(get_the_ID() == 7): ?>
         <div class="icone_homepage">
-        <?php echo '<img src="' .  get_template_directory_uri() . ' /assets/img/bol.png">' ?>
+        <?php echo '<img src="' .  get_template_directory_uri() . ' /assets/img/bowl.png">' ?>
         </div>
     <?php elseif(get_the_ID() == 5): ?>
         <div class="icone_homepage">
-        <?php echo '<img src="' .  get_template_directory_uri() . ' /assets/img/reflexologie.png">' ?>
+        <?php echo '<img src="' .  get_template_directory_uri() . ' /assets/img/reflexology.png">' ?>
         </div>
     <?php endif; 
+}
+function elfee_get_title_homepage() {
+    if(get_the_ID() == 7): ?>
+        <h2 class="title_homepage"><a class="a_title_homepage massage" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
+    <?php elseif((get_the_ID() == 5)): ?>
+        <h2 class="title_homepage"><a class="a_title_homepage reflexology" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
+    <?php endif;
 }
