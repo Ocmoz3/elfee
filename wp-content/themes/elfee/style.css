@@ -4,6 +4,12 @@ Theme Name: Elfée
 
 :root {
     --main-background: #616C50;
+    --orange-massage: #D3540C;
+    --green-reflexology: #A9BF8B;
+    --yellow-comments: #FFB500;
+    --brown-contact: #AB631C;
+    --yellow-legals: #FFD600;
+    --yellow_elfee: #F4B113;
 }
 
 /* RESET */
@@ -43,12 +49,16 @@ img {
 .title_homepage {
     font-weight: 600;
     text-transform: uppercase;
+    text-align: center;
+    padding: 1rem 0;
 }
 
-article {
-    border: 1px solid red;
+.a_title_homepage {
+    border-bottom: 3px solid var(--orange-massage);
 }
-div {
-    border: 1px solid blue;
+
+.icone_homepage {
+    width: 100px;
+    margin: 2em auto;
 }
 
