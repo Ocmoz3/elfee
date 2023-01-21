@@ -46,3 +46,10 @@ function elfee_get_title_homepage() {
         <h2 class="title_homepage"><a class="a_title_homepage reflexology" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
     <?php endif;
 }
+function elfee_get_button_homepage() {
+    if(get_the_ID() == 7): ?>
+        <button class="button btn-massage">En savoir plus</button>
+    <?php elseif((get_the_ID() == 5)): ?>
+        <button class="button btn-reflexology">En savoir plus</button>
+    <?php endif;
+}
