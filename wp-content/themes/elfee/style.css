@@ -63,7 +63,8 @@ img {
 
 .icone_homepage {
     width: 100px;
-    margin: 2em auto;
+    margin: 0 auto;
+    padding-top: 2em;
 }
 
 .card_homepage {
@@ -72,4 +73,31 @@ img {
     background-color: white;
     color: var(--font);
     padding: 1.5em;
+}
+
+.card_homepage h3 {
+    height: 25px;
+}
+.card_homepage p {
+    padding-top: 1em;
+}
+
+.button {
+    border: none;
+    padding: 1em 1em;
+    display: block;
+    margin: 1em auto 0;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+.button:hover {
+    filter: brightness(.8);
+}
+
+.button.btn-massage {
+    background-color: var(--orange-massage);
+}
+.button.btn-reflexology {
+    background-color: var(--green-reflexology);
 }
