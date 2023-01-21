@@ -74,7 +74,6 @@ img {
     color: var(--font);
     padding: 1.5em;
 }
-
 .card_homepage h3 {
     height: 25px;
 }
@@ -94,10 +93,29 @@ img {
 .button:hover {
     filter: brightness(.8);
 }
-
 .button.btn-massage {
     background-color: var(--orange-massage);
 }
 .button.btn-reflexology {
     background-color: var(--green-reflexology);
+}
+
+/* 404 */
+.div-404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+.div-404 div {
+    text-align: center;
 }
