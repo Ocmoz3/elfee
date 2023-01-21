@@ -21,11 +21,7 @@ if(have_posts()) :
         <div class="banner" style="width: 100%;"><?php the_post_thumbnail('full', ['style' => 'height: 400px; object-fit: cover;']) ?></div>
         <div class="card_homepage">
             <?php the_content() ?>
-            <?php if(get_the_ID() == 7): ?>
-            <button class="button btn-massage">En savoir plus</button>
-            <?php elseif((get_the_ID() == 5)): ?>
-            <button class="button btn-reflexology">En savoir plus</button>
-            <?php endif; ?>
+            <?php elfee_get_button_homepage() ?>
         </div>
     </article>
 <?php endwhile; ?>

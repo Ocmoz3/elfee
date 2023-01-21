@@ -10,7 +10,7 @@ Theme Name: Elfée
     --brown-contact: #AB631C;
     --yellow-legals: #FFD600;
     --yellow_elfee: #F4B113;
-    --font: #56565C;
+    --main-font: #56565C;
 }
 
 /* RESET */
@@ -47,11 +47,33 @@ img {
 }
 
 /* HOMEPAGE */
+.div-logo {
+    width: 120px;
+    margin: 0 auto;
+}
+
+.quote {
+    width: 80%;
+    margin: 0 auto 1em;
+    font-family: 'Kirang Haerang', cursive;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.div-chakras {
+    width: 250px;
+    margin: 2.5em auto 1em;
+}
+
 .title_homepage {
     font-weight: 600;
     text-transform: uppercase;
     text-align: center;
-    padding: 1rem 0;
+    padding: 1rem 0 1em;
+}
+
+.banner {
+    width: 100%;
 }
 
 .a_title_homepage.massage {
@@ -68,10 +90,11 @@ img {
 }
 
 .card_homepage {
+    background: linear-gradient(rgba(255,255,255,.95), rgba(255,255,255,.95)), url("assets/img/crea_morgane.jpg");
     width: 80%;
     margin: 1.5rem auto;
     background-color: white;
-    color: var(--font);
+    color: var(--main-font);
     padding: 1.5em;
 }
 .card_homepage h3 {
