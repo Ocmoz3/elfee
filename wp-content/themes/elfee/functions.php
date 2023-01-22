@@ -4,6 +4,9 @@
 function elfee_theme_supports() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
+    add_theme_support('menus');
+    register_nav_menu('header', 'Menu principal');
+    register_nav_menu('footer', 'Liens légaux');
 }
 
 function elfee_register_assets() {
@@ -20,10 +23,17 @@ function elfee_document_title_parts($title) {
     return $title;
 }
 
+function elfee_menu_link_class($attrs)
+{
+    $attrs['class'] = 'a_nav_header';
+    return $attrs;
+}
+
 add_action('after_setup_theme', 'elfee_theme_supports');
 add_action('wp_enqueue_scripts', 'elfee_register_assets');
 add_filter('document_title_separator', 'elfee_title_separator');
 add_filter('document_title_parts', 'elfee_document_title_parts');
+add_filter('nav_menu_link_attributes', 'elfee_menu_link_class');
 
 
 // Fonctions
