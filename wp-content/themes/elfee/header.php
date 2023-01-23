@@ -32,7 +32,51 @@
                 'theme_location' => 'header',
                 'container' => 'nav',
                 'container_class' => 'nav_header',
-                'menu_class' => 'ul_menu_header'
+                'menu_class' => 'ul_menu_header',
+                // 'link_after' => '<img src="'. get_template_directory_uri() .'/assets/img/icone_accueil.png" alt="" style="width: 50px; margin: 0 auto;">'
+                // 'link_after' => get_nav_icon()
+                'link_after' => get_menu_item_ID()
             ]) ?>
+            <?php //get_nav_icon() ?>
+            <?php
+                function get_nav_icon() {
+                    
+                    $itemID = get_menu_item_ID();
+                    
+                    if($itemID == 24) {
+                        $icon = '<img src="'. get_template_directory_uri() .'/assets/img/icone_accueil.png" alt="" style="width: 50px; margin: 0 auto;">';
+                    } 
+                    // return  $navItem->ID;
+                    return $icon;
+                }
+
+                function get_menu_item_ID() {
+                    $menuLocations = get_nav_menu_locations(); // Get our nav locations (set in our theme, usually functions.php)
+                    // This returns an array of menu locations ([LOCATION_NAME] = MENU_ID);
+
+                    $menuID = $menuLocations['header']; // Get the *primary* menu ID
+
+                    $primaryNav = wp_get_nav_menu_items($menuID); // Get the array of wp objects, the nav items for our queried location.
+                    // var_dump($primaryNav);
+                    foreach ( $primaryNav as $navItem ) {
+
+                        // echo '<li>'.$navItem->ID.'</li>';
+                        // $navItem->ID;
+                        // $itemID = [];
+                        // echo $navItem->ID;
+                        // $itemID[] = $navItem->ID;
+                        return  $navItem->ID;
+                    // return $itemID;
+
+                    }
+                    // return $itemID;
+                    // var_dump($itemID);
+                    // die();
+                }
+            ?>
         </div>
+        
+        <?php 
+        ?>
+        
         <div class="wrap">
