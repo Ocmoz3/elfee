@@ -11,13 +11,21 @@
     </head>
     <body>
         <div class="div_header">
-            <div style="width: 60%; display: flex;">
-                <div style="height: 50px;">
-                    <img src="<?php get_template_directory_uri() ?>wp-content/themes/elfee/assets/img/logo.png" alt="" style="width: 50px; height: 50px;">
+            <div class="div_sub_header">
+                <div class="div_logo_title_header">
+                    <div class="div_logo_header">
+                        <img src="<?php get_template_directory_uri() ?>wp-content/themes/elfee/assets/img/logo.png" alt="">
+                    </div>
+                    <div>
+                        <p class="p_title_header"><span class="span_elfee">Elfée</span> Morgane</p>
+                        <div class="div_subtitle_header">
+                            <p class="p_subtitle_header_reflexology">Réflexologue </p> - <p class="p_subtitle_header_massage"> Praticienne en massages sonores</p>
+                        </div>
+                    </div>
                 </div>
-                <div style="height: 50px;">
-                    <p>Elfée Morgane</p>
-                    <p>Réflexologue - Praticienne en massages sonores</p>
+                <div class="social">
+                    <a class="link_insta" href="https://www.instagram.com/morganegrignon/"><img src="<?php get_template_directory_uri() ?>wp-content/themes/elfee/assets/img/insta_line.png" alt=""></a>
+                    <a class="link_facebook" href="https://www.facebook.com/morgane.angele"><img src="<?php get_template_directory_uri() ?>wp-content/themes/elfee/assets/img/facebook_line.png" alt=""></a>
                 </div>
             </div>
             <?php wp_nav_menu([

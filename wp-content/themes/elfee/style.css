@@ -55,6 +55,46 @@ img {
     background-size: cover;
     background-position: bottom;
     margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+.div_sub_header {
+    max-width: 70%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.div_logo_title_header {
+    display: flex;
+    gap: 1em;
+}
+.div_logo_header {
+    height: 70px; width: 70px;
+}
+.p_title_header {
+    font-size: 1.5em;
+}
+.span_elfee {
+    color: var(--yellow_elfee);
+}
+.div_subtitle_header {
+    display: flex; gap: .5em;
+}
+.p_subtitle_header_reflexology {
+    border-bottom: 1px solid var(--green-reflexology);
+}
+.p_subtitle_header_massage {
+    border-bottom: 1px solid var(--orange-massage);
+}
+
+/* SOCIAL */
+.social {
+    display: flex;
+    gap: .5em;
+}
+.link_insta, .link_facebook {
+    width: 35px;
 }
 
 /* NAV */
