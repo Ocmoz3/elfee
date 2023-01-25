@@ -57,9 +57,9 @@ function elfee_get_img()
 function elfee_get_title_homepage()
 {
     if (get_the_ID() == 7) : ?>
-        <h2 class="title_homepage"><a class="a_title_homepage massage" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
+        <h2 class="title_homepage"><a class="a_title_homepage title_massage" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
     <?php elseif ((get_the_ID() == 5)) : ?>
-        <h2 class="title_homepage"><a class="a_title_homepage reflexology" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
+        <h2 class="title_homepage"><a class="a_title_homepage title_reflexology" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
     <?php endif;
 }
 function elfee_get_button_homepage()
@@ -137,7 +137,7 @@ class Menu_With_Description extends Walker_Nav_Menu
         // $item_output .= '<br /><span class="sub">' . $menu_item->description . '</span>';
         // TEST description avec <img>
         if (!empty($menu_item->description)) {
-            $item_output .= '<div><img src="' . get_template_directory_uri() . '/assets/img/' . $menu_item->description . '" alt="" style="display: block; width: 50px; margin: 0 auto;"></div>';
+            $item_output .= '<div class="div_nav_icon"><img src="' . get_template_directory_uri() . '/assets/img/' . $menu_item->description . '" alt="" style="display: block; width: 50px; margin: 0 auto;"></div>';
         } elseif (empty($menu_item->description)) {
             $item_output .= '<div><img src="' . get_template_directory_uri() . '/assets/img/logo.png" alt="" style="display: block; width: 50px; margin: 0 auto;"></div>';
         }
@@ -149,72 +149,4 @@ class Menu_With_Description extends Walker_Nav_Menu
     }
 }
 
-// function wp_get_menu_array($current_menu)
-// {
 
-//     $array_menu = wp_get_nav_menu_items($current_menu);
-//     // var_dump($array_menu);
-//     // $menu = array();
-//     // $menu['name'] = array();
-//     foreach ($array_menu as $m) {
-//         if (empty($m->menu_item_parent)) {
-//             $menu[$m->ID] = array();
-//             $menu[$m->ID]['ID'] = $m->ID;
-//             $menu[$m->ID]['title'] = $m->title;
-//             $menu[$m->ID]['url'] = $m->url;
-//         }
-//     }
-//     return $menu;
-// }
-
-// function get_nav_icon()
-// {
-//     $links = wp_get_menu_array('navigation');
-//     echo '<hr>';
-//     echo '<hr>';
-//     echo '<hr>';
-//     echo '<hr>';
-//     $array = [];
-//         // if(array_key_exists(24, $links))
-//         if($links[24]) 
-//         {
-//             $icon = 'icone_accueil.png';
-//         }
-//         // if(array_key_exists(31, $links))
-//         if($links[31])
-//         {
-//             $icon = 'reflexology.png';
-//         }
-//     return $icon;
-//     echo $icon;
-// }
-// function get_menu_item_ID()
-// {
-//     $menuLocations = get_nav_menu_locations(); // Get our nav locations (set in our theme, usually functions.php)
-//     // This returns an array of menu locations ([LOCATION_NAME] = MENU_ID);
-//     $menuID = $menuLocations['header']; // Get the *primary* menu ID
-//     $primaryNav = wp_get_nav_menu_items($menuID); // Get the array of wp objects, the nav items for our queried location.
-//     foreach ($primaryNav as $navItem) {
-//         // echo $navItem->ID;
-//         echo $navItem->title;
-//         // return $navItem->title;
-//         // return $navItem->ID;
-
-//     }
-// }
-// function test() {
-//     $links = wp_get_menu_array('navigation');
-//     var_dump($links);
-//         if($links[24]['ID'] == 24) {
-//             $icon = 'icone_accueil.png';
-//             // return $links[24]['ID'];
-//         } 
-//         // else
-//         if($links[22]['ID'] == 22) {
-//             $icon = 'reflexology.png';
-//             // return $links[22]['ID'];
-//         }
-//     return '<img src="'. get_template_directory_uri() . '/assets/img/'.$icon.'" alt="" style="width: 50px; margin: 0 auto;">';
-// }
-// $test = get_nav_icon();
-// echo $test;
