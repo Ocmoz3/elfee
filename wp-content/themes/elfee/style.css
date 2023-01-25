@@ -43,7 +43,6 @@ img {
     /* max-width: 900px; */
     width: 100%;
     margin: 0 auto;
-    /* border: 1px solid black; */
 }
 
 /* HEADER */
@@ -96,6 +95,10 @@ img {
 .link_insta, .link_facebook {
     width: 35px;
 }
+.link_insta:hover, .link_facebook:hover {
+    filter: brightness(.5);
+    transition: all .5s;
+}
 
 /* NAV */
 .nav_header {
@@ -106,17 +109,36 @@ img {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 .ul_menu_header {
     display: flex;
     justify-content: center;
-    gap: 1em;
+    gap: 2em;
     padding: 1em;
 }
-
 .a_nav_header {
     color: var(--main-font);
     font-weight: 600;
+    font-size: 1.5em;
+    transition: all .5s;
+
+}
+.accueil a:hover {
+    color: var(--yellow_elfee);
+}
+.massage a:hover {
+    color: var(--orange-massage);
+}
+.reflexology a:hover {
+    color: var(--green-reflexology);
+}
+.comments a:hover {
+    color: var(--yellow-comments);
+}
+.contact a:hover {
+    color: var(--brown-contact);
+}
+.div_nav_icon {
+    margin-top: .5em;
 }
 
 /* HOMEPAGE */
@@ -149,10 +171,10 @@ img {
     width: 100%;
 }
 
-.a_title_homepage.massage {
+.a_title_homepage.title_massage {
     border-bottom: 3px solid var(--orange-massage);
 }
-.a_title_homepage.reflexology {
+.a_title_homepage.title_reflexology {
     border-bottom: 3px solid var(--green-reflexology);
 }
 
@@ -188,6 +210,7 @@ img {
 }
 .button:hover {
     filter: brightness(.8);
+    transition: all .5s;
 }
 .button.btn-massage {
     background-color: var(--orange-massage);
@@ -196,7 +219,7 @@ img {
     background-color: var(--green-reflexology);
 }
 
-/* 404 */
+/* PAGE 404 */
 .div-404 {
     display: flex;
     flex-direction: column;

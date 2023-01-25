@@ -30,8 +30,7 @@
                 <a class="link_facebook" href="https://www.facebook.com/morgane.angele"><img src="<?php get_template_directory_uri() ?>wp-content/themes/elfee/assets/img/facebook_line.png" alt=""></a>
             </div>
         </div>
-        <?php //get_nav_icon() 
-        $icon = 'icone_accueil.png';
+        <?php
         ?>
         <?php wp_nav_menu([
             'theme_location' => 'header',
