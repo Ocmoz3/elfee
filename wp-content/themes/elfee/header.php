@@ -16,7 +16,7 @@
         <div class="div_sub_header">
             <div class="div_logo_title_header">
                 <div class="div_logo_header">
-                    <img src="<?php get_template_directory_uri() ?>wp-content/themes/elfee/assets/img/logo.png" alt="">
+                    <img src="<?= get_template_directory_uri() ?>/assets/img/logo.png" alt="">
                 </div>
                 <div>
                     <p class="p_title_header"><span class="span_elfee">Elfée</span> Morgane</p>
