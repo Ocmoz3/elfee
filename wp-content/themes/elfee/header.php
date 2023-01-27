@@ -39,10 +39,25 @@
             'menu_class' => 'ul_menu_header',
             // 'link_after' => '<img src="'. get_template_directory_uri() . '/assets/img/' . $icon . '" alt="" style="width: 50px; margin: 0 auto;">'
             // 'link_after' => test()
+            // 'link_after' => get_menu_item_ID(),
             'walker' => new Menu_With_Description
         ]) ?>
-        <?php
 
+        <?php
+        // function get_menu_item_ID()
+        // {
+        //     $menuLocations = get_nav_menu_locations(); // Get our nav locations (set in our theme, usually functions.php)
+        //     // This returns an array of menu locations ([LOCATION_NAME] = MENU_ID);
+        //     $menuID = $menuLocations['header']; // Get the *primary* menu ID
+        //     $primaryNav = wp_get_nav_menu_items($menuID); // Get the array of wp objects, the nav items for our queried location.
+        //     foreach ($primaryNav as $navItem) {
+        //         // echo $navItem->ID;
+        //         echo $navItem->title;
+        //         // return $navItem->ID;
+        //         // return $navItem->title;
+        //         // return $navItem->ID;
+        //     }
+        // }
         ?>
 
     </div>
