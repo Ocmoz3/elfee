@@ -73,18 +73,29 @@ img {
 }
 .p_title_header {
     font-size: 1.5em;
+    /* permet de gérer espace entre les deux lignes */
+    margin-block-end: -5px;
 }
 .span_elfee {
     color: var(--yellow_elfee);
 }
 .div_subtitle_header {
-    display: flex; gap: .5em;
+    display: flex;
+    gap: .5em;
 }
 .p_subtitle_header_reflexology {
-    border-bottom: 1px solid var(--green-reflexology);
+    text-decoration: underline;
+    text-decoration-color: var(--green-reflexology);
+    text-underline-position: under;
+    /* OU */
+    text-underline-offset: 2px;
+    text-decoration-thickness: 2px;
 }
 .p_subtitle_header_massage {
-    border-bottom: 1px solid var(--orange-massage);
+    text-decoration: underline;
+    text-decoration-color: var(--orange-massage);
+    text-underline-position: under;
+    text-decoration-thickness: 2px;
 }
 
 /* SOCIAL */
@@ -105,7 +116,7 @@ img {
     width: 70%;
     background-color: white;
     position: absolute;
-    bottom: -20%;
+    bottom: -40%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -115,12 +126,15 @@ img {
     gap: 2em;
     padding: 1em;
 }
+/* à voir */
+li.accueil img {
+    width: 60px;
+}
 .a_nav_header {
     color: var(--main-font);
     font-weight: 600;
     font-size: 1.5em;
     transition: all .5s;
-
 }
 .accueil a:hover {
     color: var(--yellow_elfee);
@@ -217,6 +231,15 @@ img {
 }
 .button.btn-reflexology {
     background-color: var(--green-reflexology);
+}
+
+/* PAGE TÉMOIGNAGES */
+.title_comments {
+    font-weight: 600;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: var(--yellow-comments);
+    text-underline-position: under;
 }
 
 /* PAGE 404 */
