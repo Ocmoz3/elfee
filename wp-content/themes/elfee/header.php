@@ -31,13 +31,14 @@
             </div>
         </div>
         <?php
+        $icon = 'reflexology.png';
         ?>
         <?php wp_nav_menu([
             'theme_location' => 'header',
             'container' => 'nav',
             'container_class' => 'nav_header',
             'menu_class' => 'ul_menu_header',
-            // 'link_after' => '<img src="'. get_template_directory_uri() . '/assets/img/' . $icon . '" alt="" style="width: 50px; margin: 0 auto;">'
+            // 'link_after' => '<img src="'. get_template_directory_uri() . '/assets/img/' . $icon . '" alt="" style="width: 50px; margin: 0 auto;">',
             // 'link_after' => test()
             // 'link_after' => get_menu_item_ID(),
             'walker' => new Menu_With_Description
@@ -57,6 +58,50 @@
         //         // return $navItem->title;
         //         // return $navItem->ID;
         //     }
+        
+        // $query = new WP_Query([
+        //     'post_type' => [
+        //         'nav_menu_item' => 'navigation'
+        //     ]
+        // ]);
+        $query = new WP_Query([
+            'post_type' =>  'nav_menu_item',
+            'post_in' => [22,23]
+        ]);
+        
+        // echo $query->post_in[0]; die();
+        
+        // echo '<pre>';
+        // print_r($query);
+        // echo '</pre>';
+        // die();
+
+        // var_dump(get_query_var($query->posts[0]));
+
+
+    // function montheme_pre_get_posts($query) {
+        // var_dump($query); die();
+    //     echo '<pre>';
+    //     print_r($query);
+    //     echo '</pre>';
+    //     die();
+    // }
+    // add_action('pre_get_posts', 'montheme_pre_get_posts');
+        if($query->have_posts()):
+        while($query->have_posts()): $query->the_post();
+        
+
+        // echo '<pre>';
+        // print_r($query->the_post(get_the_ID()));
+        // print_r(the_post());
+        // echo '</pre>';
+        
+        
+        ?>
+
+        <?php 
+        endwhile; wp_reset_postdata(); 
+        endif;
         // }
         ?>
 

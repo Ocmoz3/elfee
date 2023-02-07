@@ -88,7 +88,7 @@ img {
     text-decoration-color: var(--green-reflexology);
     text-underline-position: under;
     /* OU */
-    text-underline-offset: 2px;
+    /* text-underline-offset: 2px; */
     text-decoration-thickness: 2px;
 }
 .p_subtitle_header_massage {
