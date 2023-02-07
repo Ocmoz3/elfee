@@ -1,6 +1,7 @@
 <?php
     get_header();
 ?>
+<h1>SINGLE-POST</h1>
 <div class="div-logo">
     <img src="<?php echo get_theme_file_uri() ?>/assets/img/bowl.png" alt="">
 </div>
