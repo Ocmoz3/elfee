@@ -1,6 +1,8 @@
 <?php
 
 require('menus/walker-navigation.php');
+require_once('comments/CommentsWalker.php');
+
 
 // Hooks / Filters
 function elfee_theme_supports()
@@ -41,6 +43,26 @@ add_filter('document_title_separator', 'elfee_title_separator');
 add_filter('document_title_parts', 'elfee_document_title_parts');
 add_filter('nav_menu_link_attributes', 'elfee_menu_link_class');
 
+
+// Commentaires
+function wpdocs_comments_open( $open, $post_id ) {
+	$post = get_post( $post_id );
+	if ( 'page' == $post->post_type && is_page_template( 'template-comments.php' ))
+		$open = true;
+	return $open;
+}
+add_filter( 'comments_open', 'wpdocs_comments_open', 10, 2 );
+add_filter('comment_form_default_fields', function($fields) {
+    // var_dump($fields);
+    $fields['email'] = 
+    // <<<HTML
+    '<div class="form-group" style="border: 1px solid orange;">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" id="email" required>
+    </div>';
+// HTML;
+    return $fields;
+});
 
 // Fonctions
 // Récupère l'image correspondante à l'article sur Homepage

@@ -17,14 +17,13 @@
 
 <?php
 // À remettre dans functions.php
-// À sécuriser davantage pour que commentaires ne soient actifs que et uniquement sur page Témoignages
-function wpdocs_comments_open( $open, $post_id ) {
-	$post = get_post( $post_id );
-	if ( 'page' == $post->post_type )
-		$open = true;
-	return $open;
-}
-add_filter( 'comments_open', 'wpdocs_comments_open', 10, 2 );
+// function wpdocs_comments_open( $open, $post_id ) {
+// 	$post = get_post( $post_id );
+// 	if ( 'page' == $post->post_type && is_page_template( 'template-comments.php' ))
+// 		$open = true;
+// 	return $open;
+// }
+// add_filter( 'comments_open', 'wpdocs_comments_open', 10, 2 );
 ?>
 
 <!-- ICI
