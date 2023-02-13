@@ -61,8 +61,6 @@ function wpdocs_set_comment_form_defaults( $defaults ) {
     // echo '<pre>';
     // print_r($defaults);
     // echo '</pre>';
-
-
 	//For example: 
 	// $defaults['title_reply'] = __( 'Add a Comment' );
     $defaults['fields']['author'] =  '<input type="text" class="custom_author_field" name="author" id="author" placeholder="Votre nom" novalidate>';
@@ -72,31 +70,7 @@ function wpdocs_set_comment_form_defaults( $defaults ) {
 	return $defaults;
 }
 add_filter( 'comment_form_defaults', 'wpdocs_set_comment_form_defaults' );
-// add_filter('comment_form_default_fields', function($fields) {
-    // var_dump($fields);
-    // $fields['comment'] =
-    // '<label for="comment">Commentaire <span class="required">*****</span></label> <textarea style="border: 2px solid red;" id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea></p>';
-    // $fields['author'] =
-//     <<<HTML
-    
-    // '<div class="form-group" style="border: 1px solid orange;">
-    //     <label for="author">Nom</label>
-    //     <input type="text" class="form-control" name="author" id="author" novalidate>
-    // </div>';
-// HTML;
-//     return $fields;
-// });
-// add_filter('comment_form_default_fields', 'email_filtered');
-// function email_filtered($fields)
-// {
-//     var_dump($fields);
 
-//   if(isset($fields['email']))
-//    unset($fields['email']);
-//    unset($fields['url']);
-//   return $fields;
-// }
-add_filter( 'comment_form_fields', 'mo_comment_fields_custom_order' );
 function mo_comment_fields_custom_order( $fields ) {
     $comment_field = $fields['comment'];
     $author_field = $fields['author'];
@@ -117,6 +91,7 @@ function mo_comment_fields_custom_order( $fields ) {
     // done ordering, now return the fields:
     return $fields;
 }
+add_filter( 'comment_form_fields', 'mo_comment_fields_custom_order' );
 
 // Fonctions
 // Récupère l'image correspondante à l'article sur Homepage

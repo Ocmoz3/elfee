@@ -15,17 +15,6 @@
     <h1 class="title_comments">TÉMOIGNAGES</h1>
 </div>
 
-<?php
-// À remettre dans functions.php
-// function wpdocs_comments_open( $open, $post_id ) {
-// 	$post = get_post( $post_id );
-// 	if ( 'page' == $post->post_type && is_page_template( 'template-comments.php' ))
-// 		$open = true;
-// 	return $open;
-// }
-// add_filter( 'comments_open', 'wpdocs_comments_open', 10, 2 );
-?>
-
 <!-- ICI
 INSÉRER LES COMMENTAIRES -->
 <?php //var_dump(wp_list_comments()) ?>
@@ -37,10 +26,8 @@ INSÉRER LES COMMENTAIRES -->
 <!-- Pour modifier en profondeur, voir : https://github.com/babobski/Bootstrap-on-WordPress/blob/master/comments.php -->
 <!-- OU jouer avec le CSS -->
 
-
 <!-- Voir si on doit intégrer NONCE pour la sécurité
 Voir fin de vidéo sur les métadonnées -->
-
 <?php
     get_footer();
 ?>
