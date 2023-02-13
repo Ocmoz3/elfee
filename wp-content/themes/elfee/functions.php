@@ -10,6 +10,7 @@ function elfee_theme_supports()
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('menus');
+    add_theme_support('html5');
     register_nav_menu('header', 'Menu principal');
     register_nav_menu('footer', 'Liens légaux');
 }
@@ -45,24 +46,77 @@ add_filter('nav_menu_link_attributes', 'elfee_menu_link_class');
 
 
 // Commentaires
+// if(is_page( 'temoignages' ))
 function wpdocs_comments_open( $open, $post_id ) {
 	$post = get_post( $post_id );
-	if ( 'page' == $post->post_type && is_page_template( 'template-comments.php' ))
-		$open = true;
+	if ( 'page' == $post->post_type ) {
+		    $open = true;
+    }
 	return $open;
 }
 add_filter( 'comments_open', 'wpdocs_comments_open', 10, 2 );
-add_filter('comment_form_default_fields', function($fields) {
+function wpdocs_set_comment_form_defaults( $defaults ) {
+	//Here you are able to change the $defaults[]
+    // var_dump($defaults);
+    // echo '<pre>';
+    // print_r($defaults);
+    // echo '</pre>';
+
+
+	//For example: 
+	// $defaults['title_reply'] = __( 'Add a Comment' );
+    $defaults['fields']['author'] =  '<input type="text" class="custom_author_field" name="author" id="author" placeholder="Votre nom" novalidate>';
+	$defaults['comment_field'] = '<textarea class="custom_comment_field" id="comment" name="comment" placeholder="Votre commentaire..." required></textarea></p>';
+	$defaults['label_submit'] = 'Envoyer';
+	// $defaults['submit_button'] = '<span>Envoyer</span>';
+	return $defaults;
+}
+add_filter( 'comment_form_defaults', 'wpdocs_set_comment_form_defaults' );
+// add_filter('comment_form_default_fields', function($fields) {
     // var_dump($fields);
-    $fields['email'] = 
-    // <<<HTML
-    '<div class="form-group" style="border: 1px solid orange;">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" name="email" id="email" required>
-    </div>';
+    // $fields['comment'] =
+    // '<label for="comment">Commentaire <span class="required">*****</span></label> <textarea style="border: 2px solid red;" id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea></p>';
+    // $fields['author'] =
+//     <<<HTML
+    
+    // '<div class="form-group" style="border: 1px solid orange;">
+    //     <label for="author">Nom</label>
+    //     <input type="text" class="form-control" name="author" id="author" novalidate>
+    // </div>';
 // HTML;
+//     return $fields;
+// });
+// add_filter('comment_form_default_fields', 'email_filtered');
+// function email_filtered($fields)
+// {
+//     var_dump($fields);
+
+//   if(isset($fields['email']))
+//    unset($fields['email']);
+//    unset($fields['url']);
+//   return $fields;
+// }
+add_filter( 'comment_form_fields', 'mo_comment_fields_custom_order' );
+function mo_comment_fields_custom_order( $fields ) {
+    $comment_field = $fields['comment'];
+    $author_field = $fields['author'];
+    // $email_field = $fields['email'];
+    // $url_field = $fields['url'];
+    // $cookies_field = $fields['cookies'];
+    unset( $fields['comment'] );
+    unset( $fields['author'] );
+    unset( $fields['email'] );
+    unset( $fields['url'] );
+    unset( $fields['cookies'] );
+    // the order of fields is the order below, change it as needed:
+    $fields['author'] = $author_field;
+    // $fields['email'] = $email_field;
+    // $fields['url'] = $url_field;
+    $fields['comment'] = $comment_field;
+    // $fields['cookies'] = $cookies_field;
+    // done ordering, now return the fields:
     return $fields;
-});
+}
 
 // Fonctions
 // Récupère l'image correspondante à l'article sur Homepage
