@@ -26,8 +26,8 @@
                 </div>
             </div>
             <div class="social">
-                <a class="link_insta" href="https://www.instagram.com/morganegrignon/"><img src="<?php get_template_directory_uri() ?>wp-content/themes/elfee/assets/img/insta_line.png" alt=""></a>
-                <a class="link_facebook" href="https://www.facebook.com/morgane.angele"><img src="<?php get_template_directory_uri() ?>wp-content/themes/elfee/assets/img/facebook_line.png" alt=""></a>
+                <a class="link_insta" href="https://www.instagram.com/morganegrignon/"><img src="<?= get_template_directory_uri() ?>/assets/img/insta_line.png" alt=""></a>
+                <a class="link_facebook" href="https://www.facebook.com/morgane.angele"><img src="<?= get_template_directory_uri() ?>/assets/img/facebook_line.png" alt=""></a>
             </div>
         </div>
         <?php
