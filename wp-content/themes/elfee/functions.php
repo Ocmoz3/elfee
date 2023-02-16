@@ -93,6 +93,25 @@ function mo_comment_fields_custom_order( $fields ) {
 }
 add_filter( 'comment_form_fields', 'mo_comment_fields_custom_order' );
 
+// Ajouter une icône différente à chaque lien de menu
+// avec possibilité de choisir dans l'admin
+function my_wp_nav_menu_objects( $items, $args ) {
+    // loop
+    foreach( $items as &$item ) {
+        // vars
+        $icon = get_field('icone_menu', $item);
+        // append icon
+        if( $icon ) {
+            // $item->title .= ' <i class="fa fa-'.$icon.'"></i>';
+            $item->title .= ' <div style="width: 60px; height: 60px; display: flex; justify-content: center; margin: 0 auto;"><img src="' . $icon . '" alt="" style="display: block; margin: 10px auto 0; object-fit: contain;"></div>';
+        }   
+    }
+    // return
+    return $items;
+}
+add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects', 10, 2);
+
+
 // Fonctions
 // Récupère l'image correspondante à l'article sur Homepage
 function elfee_get_img()
