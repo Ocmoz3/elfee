@@ -1,6 +1,6 @@
 <?php
 
-// Intégrer des images au menu de navigation
+// Intégrer une description au menu de navigation
 class Menu_With_Description extends Walker_Nav_Menu
 {
     public function start_el(&$output, $data_object, $depth = 0, $args = null, $current_object_id = 0)
@@ -67,9 +67,11 @@ class Menu_With_Description extends Walker_Nav_Menu
         // TEST description avec <img>
         if (!empty($menu_item->description)) {
             $item_output .= '<div class="div_nav_icon"><img src="' . get_template_directory_uri() . '/assets/img/' . $menu_item->description . '" alt="" style="display: block; width: 50px; margin: 0 auto;"></div>';
-        } elseif (empty($menu_item->description)) {
-            $item_output .= '<div><img src="' . get_template_directory_uri() . '/assets/img/logo.png" alt="" style="display: block; width: 50px; margin: 0 auto;"></div>';
-        }
+        } 
+        // ajout d'une image par défaut
+        // elseif (empty($menu_item->description)) {
+        //     $item_output .= '<div><img src="' . get_template_directory_uri() . '/assets/img/logo.png" alt="" style="display: block; width: 50px; margin: 0 auto;"></div>';
+        // }
 
         $item_output .= '</a>';
         $item_output .= $args->after;

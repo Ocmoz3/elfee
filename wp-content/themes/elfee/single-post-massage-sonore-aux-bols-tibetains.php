@@ -1,7 +1,8 @@
 <?php
     get_header();
 ?>
-<h1>SINGLE-POST</h1>
+<img src="<?= get_field('icone') ?>" alt="" style="width: 20px; height: auto;">
+
 <div class="div-logo">
     <img src="<?php echo get_theme_file_uri() ?>/assets/img/bowl.png" alt="">
 </div>
@@ -20,6 +21,17 @@ if(have_posts()) :
         <?php elfee_get_title_homepage() ?>
         <div class="card_homepage">
             <?php the_content() ?>
+        </div>
+        <div style="display: flex; gap: 1rem;">
+            <div style="width: 30%;">
+                <img src="<?= get_field('detente_sonore') ?>" alt="" style="width: 100%; height: auto;">
+            </div>
+            <div>
+                <img src="<?= get_field('test_img') ?>" alt="" style="width: 100%; height: auto;">
+            </div>
+            <div>
+                <img src="<?= get_field('test_img') ?>" alt="" style="width: 100%; height: auto;">
+            </div>
         </div>
     </article>
 <?php endwhile; ?>
