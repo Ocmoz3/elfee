@@ -129,10 +129,6 @@ img {
     gap: 2em;
     padding: 1em;
 }
-/* à voir */
-li.accueil img {
-    width: 60px;
-}
 .a_nav_header {
     color: var(--main-font);
     font-weight: 600;
@@ -159,9 +155,9 @@ li.accueil img {
 }
 
 /* HOMEPAGE */
-.div-logo {
+.div_icone_page {
     width: 120px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
 }
 
 .quote {
@@ -234,6 +230,35 @@ li.accueil img {
 }
 .button.btn-reflexology {
     background-color: var(--green-reflexology);
+}
+
+/* PAGE RÉFLEXOLOGIE */
+.page_background {
+    position: relative;
+    padding: 5em 8em;
+}
+.page_background::before {
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    /* background:url("<?php echo esc_url($titre_description['image_background']); ?>") 0 0 no-repeat; */
+    box-shadow: inset 0px -10px 40px 15px #616C50, inset 0px 10px 40px 15px #616C50;
+    background-size:cover;
+    opacity:.2;
+    z-index:-1;
+    }
+.page_subtitle {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 400;
+    padding-bottom: 1em;
+}
+.page_description {
+    text-align: center;
+    line-height: 2;
 }
 
 /* PAGE TÉMOIGNAGES */

@@ -2,7 +2,7 @@
     get_header();
 ?>
 <h1>FRONT-PAGE</h1>
-<div class="div-logo">
+<div class="div_icone_page">
     <img src="<?php get_template_directory_uri() ?>wp-content/themes/elfee/assets/img/logo.png" alt="">
 </div>
 <div>
