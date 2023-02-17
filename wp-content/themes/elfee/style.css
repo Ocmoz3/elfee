@@ -260,6 +260,47 @@ img {
     text-align: center;
     line-height: 2;
 }
+.page_card {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+.div_main_page_card {
+    width: 25%;
+    height: 350px;
+}
+.div_img_page_card {
+    height: 60%;
+}
+.img_page_card {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.div_text_page_card {
+    background-color: white;
+    height: 40%;
+    padding: 1em 1em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.h4_text_page_card {
+    color: var(--green-reflexology);
+    text-align: center;
+    font-weight: 500;
+    padding-bottom: .5em;
+}
+.p_desc_text_page_card {
+    color: var(--main-font);
+    line-height: 1.2;
+    text-align: center;
+}
+.p_time_text_page_card {
+    color: var(--green-reflexology);
+    font-size: .9em;
+    text-align: right;
+}
 
 /* PAGE TÉMOIGNAGES */
 .title_comments {
