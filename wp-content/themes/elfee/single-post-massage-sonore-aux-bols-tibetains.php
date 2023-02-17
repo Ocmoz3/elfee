@@ -3,7 +3,7 @@
 ?>
 <img src="<?= get_field('icone') ?>" alt="" style="width: 20px; height: auto;">
 
-<div class="div-logo">
+<div class="div_icone_page">
     <img src="<?php echo get_theme_file_uri() ?>/assets/img/bowl.png" alt="">
 </div>
 <div>

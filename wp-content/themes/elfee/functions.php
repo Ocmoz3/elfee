@@ -111,6 +111,33 @@ function my_wp_nav_menu_objects( $items, $args ) {
 }
 add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects', 10, 2);
 
+///////
+// function my_admin_only_render_field_settings( $field ) {
+//     acf_render_field_setting( $field, array(
+//         'label'        => __( 'Admin Only ?', 'my-textdomain' ),
+//         'instructions' => '',
+//         'name'         => 'admin_only',
+//         'type'         => 'true_false',
+//         'ui'           => 1,
+//     ), true ); // If adding a setting globally, you MUST pass true as the third parameter!
+// }
+// add_action( 'acf/render_field_settings', 'my_admin_only_render_field_settings' );
+// add_filter('acf/get_sub_field', function($sub_field, $id, $field) {
+//     acf_get_sub_field('text', )
+// } );
+add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
+function my_toolbars( $toolbars ) {
+    // var_dump(func_get_args());
+    // die();
+    // echo '<pre>';
+    // print_r(func_get_args());
+    // echo '</pre>';
+    // die();
+    array_unshift( $toolbars['Basic' ][1], 'forecolor' );
+    return $toolbars;
+}
+
+///////
 
 // Fonctions
 // Récupère l'image correspondante à l'article sur Homepage
