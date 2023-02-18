@@ -3,7 +3,10 @@
 }
 
 /* Hauteur champs WYSIWYG sous-titre ACF */
-div[data-name="sous-titre"] div.mce-edit-area {
+div[data-name="sous-titre"] div.mce-edit-area,
+div[data-name="legende_illustration"] div.mce-edit-area,
+div[data-name="sous-titre"] .wp-editor-container textarea.wp-editor-area,
+div[data-name="legende_illustration"] .wp-editor-container textarea.wp-editor-area {
     max-height: 80px;
     height: 100%;
     overflow-y: scroll;
