@@ -7,6 +7,7 @@ Theme Name: Elfée
     --orange-massage: #D3540C;
     --green-reflexology: #A9BF8B;
     --yellow-comments: #FFB500;
+    --yellow-caption: #E3A70E;
     --brown-contact: #AB631C;
     --yellow-legals: #FFD600;
     --yellow_elfee: #F4B113;
@@ -157,9 +158,11 @@ img {
 /* HOMEPAGE */
 .div_icone_page {
     width: 120px;
-    margin: 0 auto 20px;
+    margin: 1em auto 1em;
 }
-
+.div_quote {
+    margin: 1em auto 1em;
+}
 .quote {
     width: 80%;
     margin: 0 auto 1em;
@@ -167,10 +170,9 @@ img {
     text-align: center;
     font-size: 1.8em;
 }
-
 .div-chakras {
     width: 250px;
-    margin: 2.5em auto 1em;
+    margin: 2em auto 2em;
 }
 
 .title_homepage {
@@ -236,20 +238,19 @@ img {
 .page_background {
     position: relative;
     padding: 5em 8em;
+    margin: 1em auto 1em;
 }
 .page_background::before {
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    /* background:url("<?php echo esc_url($titre_description['image_background']); ?>") 0 0 no-repeat; */
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     box-shadow: inset 0px -10px 40px 15px #616C50, inset 0px 10px 40px 15px #616C50;
-    background-size:cover;
-    opacity:.2;
-    z-index:-1;
-    }
+    opacity: .2;
+    z-index: -1;
+}
 .page_subtitle {
     text-transform: uppercase;
     text-align: center;
@@ -260,10 +261,18 @@ img {
     text-align: center;
     line-height: 2;
 }
+/*  */
 .page_card {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    margin: 2em 0 2em;
+}
+.page_card.card_massage .div_main_page_card {
+    border-bottom: 5px solid var(--orange-massage);
+}
+.page_card.card_reflexology .div_main_page_card {
+    border-bottom: 5px solid var(--green-reflexology);
 }
 .div_main_page_card {
     width: 25%;
@@ -280,13 +289,18 @@ img {
 .div_text_page_card {
     background-color: white;
     height: 40%;
-    padding: 1em 1em 0;
+    padding: 1em 1em .2em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.h4_text_page_card {
+.page_card.card_massage .h4_text_page_card {
+    color: var(--orange-massage);
+}
+.page_card.card_reflexology .h4_text_page_card {
     color: var(--green-reflexology);
+}
+.h4_text_page_card {
     text-align: center;
     font-weight: 500;
     padding-bottom: .5em;
@@ -296,10 +310,55 @@ img {
     line-height: 1.2;
     text-align: center;
 }
-.p_time_text_page_card {
+.page_card.card_massage .p_time_text_page_card {
+    color: var(--orange-massage);
+}
+.page_card.card_reflexology .p_time_text_page_card {
     color: var(--green-reflexology);
+}
+.p_time_text_page_card {
     font-size: .9em;
     text-align: right;
+}
+/*  */
+.div_listing_benefits {
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+}
+.listing_benefits_background {
+    padding: 3em;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: inset -20px 5px 15px 10px var(--main-background), inset 20px -5px 15px 10px var(--main-background);
+}
+.title_benefits {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1em;
+    font-weight: 300;
+}
+.list_benefits ul li {
+    list-style: disc inside;
+    font-weight: 300;
+}
+/*  */
+.div_illustration {
+    margin: 2em 0;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+.illustration {
+    width: 45%;
+}
+.caption {
+    text-align: center;
+    line-height: 1.2;
+    padding: 0.5em;
 }
 
 /* PAGE TÉMOIGNAGES */
