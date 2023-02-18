@@ -1,0 +1,10 @@
+#postdivrich {
+    display: none;
+}
+
+/* Hauteur champs WYSIWYG sous-titre ACF */
+div[data-name="sous-titre"] div.mce-edit-area {
+    max-height: 80px;
+    height: 100%;
+    overflow-y: scroll;
+}

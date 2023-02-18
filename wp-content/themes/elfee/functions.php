@@ -21,6 +21,13 @@ function elfee_register_assets()
     wp_enqueue_script('main_js', get_template_directory_uri() . '/assets/js/main.js');
 }
 
+function elfee_register_admin_assets()
+{
+    wp_enqueue_style('admin_elfee', get_template_directory_uri() . '/assets/admin/admin.css');
+    wp_enqueue_script('admin_elfee', get_template_directory_uri() . '/assets/admin/admin.js', [], false, true);
+}
+add_action('admin_enqueue_scripts', 'elfee_register_admin_assets');
+
 function elfee_title_separator()
 {
     return '~';
