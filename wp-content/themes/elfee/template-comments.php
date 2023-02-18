@@ -8,7 +8,7 @@
     get_header();
 ?>
 <!-- <h1>TEMPLATE-COMMENTS</h1> -->
-<div class="div-logo">
+<div class="div_icone_page">
     <img src="<?php echo get_theme_file_uri() ?>/assets/img/icone_comments_without_background.png" alt="">
 </div>
 <div>
