@@ -1,24 +1,25 @@
 <?php
     get_header();
 ?>
+<div class="div_page_header">
+    <div class="div_icone_page">
+        <img src="<?php echo esc_url(get_field('icone')); ?>" alt="">
+    </div>
+    <div class="div_quote">
+        <p class="quote">“<?php echo esc_html(get_field('citation')); ?>”</p>
+        <p class="quote"><?php echo esc_html(get_field('auteur_citation')); ?></p>
+    </div>
+    <div class="div-chakras">
+        <img src="<?php echo esc_url(get_field('separateur')); ?>" alt="">
+    </div>
+</div>
 
-<div class="div_icone_page">
-    <img src="<?php echo esc_url(get_field('icone')); ?>" alt="">
-</div>
-<div class="div_quote">
-    <p class="quote">“<?php echo esc_html(get_field('citation')); ?>”<br>
-    <?php echo esc_html(get_field('auteur_citation')); ?></p>
-</div>
-<div class="div-chakras">
-    <img src="<?php echo esc_url(get_field('separateur')); ?>" alt="">
-</div>
-
-<div>
+<div class="titre_description_reflexology">
     <?php $titre_description = get_field('titre_description');
     if($titre_description): ?>
     <div class="page_background">
-            <h2 class="title_homepage"><a class="a_title_homepage title_reflexology" href="<?php the_permalink() ?>"><?php echo esc_html($titre_description['titre']); ?></a></h2>
-            <h3 class="page_subtitle"><?php echo $titre_description['sous-titre']; ?></h3>
+            <h2 class="title"><a class="a_title title_reflexology" href="<?php the_permalink() ?>"><?php echo esc_html($titre_description['titre']); ?></a></h2>
+            <div class="page_subtitle"><?php echo $titre_description['sous-titre']; ?></div>
             <div class="page_description"><?php echo $titre_description['description']; ?></div>
     </div>
 
