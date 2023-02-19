@@ -18,7 +18,7 @@ if (have_posts()) :
 ?>
     <?php while (have_posts()) : the_post(); ?>
         <article>
-            <?php elfee_get_title_homepage() ?>
+            <?php elfee_get_title() ?>
             <div class="card_homepage">
                 <?php the_content() ?>
             </div>

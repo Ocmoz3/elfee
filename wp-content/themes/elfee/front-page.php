@@ -18,7 +18,7 @@ if(have_posts()) :
 <?php while(have_posts()) : the_post(); ?>
     <article>
         <?php elfee_get_img() ?>
-        <?php elfee_get_title_homepage() ?>
+        <?php elfee_get_title() ?>
         <div class="banner" style="width: 100%;"><?php the_post_thumbnail('full', ['style' => 'height: 400px; object-fit: cover;']) ?></div>
         <div class="card_homepage">
             <?php the_content() ?>

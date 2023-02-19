@@ -110,8 +110,12 @@ function my_wp_nav_menu_objects( $items, $args ) {
         // append icon
         if( $icon ) {
             // $item->title .= ' <i class="fa fa-'.$icon.'"></i>';
-            $item->title .= ' <div style="width: 60px; height: 60px; display: flex; justify-content: center; margin: 0 auto;"><img src="' . $icon . '" alt="" style="display: block; margin: 10px auto 0; object-fit: contain;"></div>';
-        }   
+            $item->title .= ' <div style="width: 60px; height: 60px; display: flex; justify-content: center; margin: 0 auto;"><img src="' . $icon . '" alt="" style="display: block; object-fit: contain;"></div>';
+            // margin: 10px auto 0;
+        } else {
+            // append logo by default
+            $item->title .= ' <div style="width: 60px; height: 60px; display: flex; justify-content: center; margin: 0 auto;"><img src="' . get_template_directory_uri() . '/assets/img/logo.png" alt="" style="display: block; margin: 10px auto 0; object-fit: contain;"></div>';
+        }
     }
     // return
     return $items;
@@ -160,7 +164,7 @@ function elfee_get_img()
         </div>
     <?php endif;
 }
-function elfee_get_title_homepage()
+function elfee_get_title()
 {
     if (get_the_ID() == 7) : ?>
         <h2 class="title_homepage"><a class="a_title_homepage title_massage" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
