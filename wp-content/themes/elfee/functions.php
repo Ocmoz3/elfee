@@ -1,6 +1,7 @@
 <?php
 
 require('menus/walker-navigation.php');
+require('menus/walker-navigation-footer.php');
 require_once('comments/CommentsWalker.php');
 
 
@@ -12,7 +13,8 @@ function elfee_theme_supports()
     add_theme_support('menus');
     add_theme_support('html5');
     register_nav_menu('header', 'Menu principal');
-    register_nav_menu('footer', 'Liens légaux');
+    register_nav_menu('footer_main', 'Menu principal footer');
+    register_nav_menu('footer_legals', 'Liens légaux');
 }
 
 function elfee_register_assets()
@@ -39,17 +41,30 @@ function elfee_document_title_parts($title)
     return $title;
 }
 
-function elfee_menu_link_class($attrs)
+function elfee_menu_link_class($atts, $item, $args)
 {
-    $attrs['class'] = 'a_nav_header';
-    return $attrs;
+    // var_dump(func_get_args());
+    // die();
+    if($args->theme_location === 'header'):
+        $atts['class'] = 'a_nav_header';
+    endif;
+    return $atts;
 }
+
+////
+// function test($title, $menu_item, $args) {
+//     if($args->theme_location === 'footer_amin'):
+//         $title = 'test';
+//     endif;
+//     return $title;
+// }
+// add_filter('nav_menu_item_title', 'test', 10, 3);
 
 add_action('after_setup_theme', 'elfee_theme_supports');
 add_action('wp_enqueue_scripts', 'elfee_register_assets');
 add_filter('document_title_separator', 'elfee_title_separator');
 add_filter('document_title_parts', 'elfee_document_title_parts');
-add_filter('nav_menu_link_attributes', 'elfee_menu_link_class');
+add_filter('nav_menu_link_attributes', 'elfee_menu_link_class', 10, 3);
 
 
 // Commentaires
@@ -100,23 +115,27 @@ function mo_comment_fields_custom_order( $fields ) {
 }
 add_filter( 'comment_form_fields', 'mo_comment_fields_custom_order' );
 
+
 // Ajouter une icône différente à chaque lien de menu
 // avec possibilité de choisir dans l'admin
 function my_wp_nav_menu_objects( $items, $args ) {
-    // loop
-    foreach( $items as &$item ) {
-        // vars
-        $icon = get_field('icone_menu', $item);
-        // append icon
-        if( $icon ) {
-            // $item->title .= ' <i class="fa fa-'.$icon.'"></i>';
-            $item->title .= ' <div style="width: 60px; height: 60px; display: flex; justify-content: center; margin: 0 auto;"><img src="' . $icon . '" alt="" style="display: block; object-fit: contain;"></div>';
-            // margin: 10px auto 0;
-        } else {
-            // append logo by default
-            $item->title .= ' <div style="width: 60px; height: 60px; display: flex; justify-content: center; margin: 0 auto;"><img src="' . get_template_directory_uri() . '/assets/img/logo.png" alt="" style="display: block; margin: 10px auto 0; object-fit: contain;"></div>';
+    // do taht only on header menu
+    if($args->theme_location === 'header'):
+        // loop
+        foreach( $items as &$item ) {
+            // vars
+            $icon = get_field('icone_menu', $item);
+            // append icon
+            if( $icon ) {
+                // $item->title .= ' <i class="fa fa-'.$icon.'"></i>';
+                $item->title .= ' <div style="width: 60px; height: 60px; display: flex; justify-content: center; margin: 0 auto;"><img src="' . $icon . '" alt="" style="display: block; object-fit: contain;"></div>';
+                // margin: 10px auto 0;
+            } else {
+                // append logo by default
+                $item->title .= ' <div style="width: 60px; height: 60px; display: flex; justify-content: center; margin: 0 auto;"><img src="' . get_template_directory_uri() . '/assets/img/logo.png" alt="" style="display: block; margin: 10px auto 0; object-fit: contain;"></div>';
+            }
         }
-    }
+    endif;
     // return
     return $items;
 }
