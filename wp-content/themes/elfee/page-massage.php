@@ -149,6 +149,13 @@ get_header();
     <?php endif; ?>
 </div>
 
+<div class="div_text_fin">
+    <?php $text_end = get_field('texte_fin_de_page');
+    if ($text_end) : ?>
+        <div class="page_end"><?= $text_end ?></div>
+    <?php endif; ?>
+</div>
+
 <?php
 get_footer();
 ?>
