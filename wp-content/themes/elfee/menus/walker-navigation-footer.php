@@ -136,7 +136,7 @@ class Walker_Nav_Menu_Footer extends Walker_Nav_Menu {
 
         // modified
 		// $item_output .= '<a' . $attributes . '>';
-		$item_output .= '<a' . $attributes . ' style="display: block; width: 50px; height: 50px; background-color: green;">';
+		$item_output .= '<a' . $attributes . ' style="border: 1px solid red;">';
 
         // modified
 		// $item_output .= $args->link_before . $title . $args->link_after;

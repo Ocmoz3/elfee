@@ -47,18 +47,21 @@ function elfee_menu_link_class($atts, $item, $args)
     // die();
     if($args->theme_location === 'header'):
         $atts['class'] = 'a_nav_header';
+    elseif($args->theme_location === 'footer_main'):
+        $atts['class'] = 'a_nav_footer';
     endif;
     return $atts;
 }
 
 ////
-// function test($title, $menu_item, $args) {
-//     if($args->theme_location === 'footer_amin'):
-//         $title = 'test';
-//     endif;
-//     return $title;
-// }
-// add_filter('nav_menu_item_title', 'test', 10, 3);
+// Enlève le texte de la navigation dans le footer
+function elfee_menu_link_title($title, $menu_item, $args) {
+    if($args->theme_location === 'footer_main'):
+        $title = '';
+    endif;
+    return $title;
+}
+add_filter('nav_menu_item_title', 'elfee_menu_link_title', 10, 3);
 
 add_action('after_setup_theme', 'elfee_theme_supports');
 add_action('wp_enqueue_scripts', 'elfee_register_assets');

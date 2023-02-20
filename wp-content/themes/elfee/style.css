@@ -514,3 +514,56 @@ img {
 .div-404 div {
     text-align: center;
 }
+
+/* FOOTER */
+.footer {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .5em;
+}
+.footer_main {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+}
+.footer .logo_title {
+    display: flex;
+    align-items: center;
+    font-family: 'Karma', serif;
+    gap: .5em;
+    font-weight: 600;
+}
+.div_logo_footer {
+    width: 90px;
+}
+.p_name_footer {
+    font-size: 1.5em;
+    margin-block-end: -5px;
+}
+.p_works_footer {
+    margin-block-end: -5px;
+}
+.footer .social {
+    align-items: flex-end;
+    padding-bottom: .5em;
+}
+.nav_footer {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: .5em;
+}
+.ul_menu_footer {
+    width: 100px;
+    display: flex;
+    flex-flow: row wrap;
+    gap: .2rem;
+}
+.a_nav_footer {
+    display: block;
+    width: 45px;
+    height: 40px;
+    background-color: green;
+}
