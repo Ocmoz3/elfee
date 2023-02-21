@@ -20,7 +20,6 @@
                 <?php wp_nav_menu([
                     'theme_location' => 'footer_main',
                     'container' => 'nav',
-                    // 'container_class' => 'nav_header',
                     'menu_class' => 'ul_menu_footer',
                     // 'walker' => new Walker_Nav_Menu_Footer
                 ]) ?>
