@@ -55,13 +55,36 @@ function elfee_menu_link_class($atts, $item, $args)
 
 ////
 // Enlève le texte de la navigation dans le footer
+// OU insère une balise image en fonction de l'url appelée
 function elfee_menu_link_title($title, $menu_item, $args) {
-    if($args->theme_location === 'footer_main'):
-        $title = '';
+    if($args->theme_location === 'footer_main' && $menu_item->url == 'http://localhost/elfee/massage/'):
+        // $title = $menu_item->slug;
+        $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_massage.png" alt="">';
+    elseif($args->theme_location === 'footer_main' && $menu_item->url == 'http://localhost/elfee/reflexologie/'):
+        $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_reflexologie.png" alt="">';
+    elseif($args->theme_location === 'footer_main' && $menu_item->url == 'http://localhost/elfee/temoignages/'):
+        $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_temoignages.png" alt="">';
+    elseif($args->theme_location === 'footer_main' && $menu_item->url == 'http://localhost/elfee/contact/'):
+        $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_contact.png" alt="">';
     endif;
     return $title;
 }
 add_filter('nav_menu_item_title', 'elfee_menu_link_title', 10, 3);
+// //
+// function filter_nav_menu_item_args($args, $item, $depth)
+// {
+//     echo '<pre>';
+//     print_r($item); 
+//     echo'</pre>';
+//     if ($item->url == 'http://localhost/elfee/massage/')
+//     {
+//         $args->link_before = print_r($item, true); // <-- Outputs nothing
+//     }
+
+//     return $args;
+// }
+// add_filter('nav_menu_item_args', 'filter_nav_menu_item_args', 10, 3);
+
 
 add_action('after_setup_theme', 'elfee_theme_supports');
 add_action('wp_enqueue_scripts', 'elfee_register_assets');
