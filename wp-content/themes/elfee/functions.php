@@ -86,22 +86,6 @@ function elfee_menu_link_title($title, $menu_item, $args) {
     return $title;
 }
 add_filter('nav_menu_item_title', 'elfee_menu_link_title', 10, 3);
-// function elfee_menu_footer_link_title($title, $menu_item, $args) {
-//     if($args->theme_location === 'header'):
-//         if($menu_item->url == 'http://localhost/elfee/massage/'):
-//         // $title = $menu_item->slug;
-//         $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_massage.png" alt="">';
-//         elseif($menu_item->url == 'http://localhost/elfee/reflexologie/'):
-//             $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_reflexologie.png" alt="">';
-//         elseif($menu_item->url == 'http://localhost/elfee/temoignages/'):
-//             $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_temoignages.png" alt="">';
-//         elseif($menu_item->url == 'http://localhost/elfee/contact/'):
-//             $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_contact.png" alt="">';
-//         endif;
-//     endif;
-//     return $title;
-// }
-// add_filter('nav_menu_item_title', 'elfee_menu_footer_link_title', 10, 3);
 
 
 
