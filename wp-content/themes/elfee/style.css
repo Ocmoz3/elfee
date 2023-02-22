@@ -144,13 +144,13 @@ img {
 .massage:hover {
     color: var(--orange-massage);
 }
-.reflexology a:hover {
+.reflexology:hover {
     color: var(--green-reflexology);
 }
-.comments a:hover {
+.comments:hover {
     color: var(--yellow-comments);
 }
-.contact a:hover {
+.contact:hover {
     color: var(--brown-contact);
 }
 .div_nav_icon {
