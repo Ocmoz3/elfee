@@ -43,10 +43,24 @@ function elfee_document_title_parts($title)
 
 function elfee_menu_link_class($atts, $item, $args)
 {
-    // var_dump(func_get_args());
-    // die();
+    // echo '<pre>';
+    // print_r(func_get_args());
+    // print_r($item);
+    // echo '</pre>';
     if($args->theme_location === 'header'):
         $atts['class'] = 'a_nav_header';
+        // if($item->post_title == 'Accueil'):
+        if($item->url == 'http://localhost/elfee/'):
+            $atts['class'] .= ' accueil';
+        elseif($item->url == 'http://localhost/elfee/massage/'):
+            $atts['class'] .= ' massage';
+        elseif($item->url == 'http://localhost/elfee/reflexologie/'):
+            $atts['class'] .= ' reflexology';
+        elseif($item->url == 'http://localhost/elfee/temoignages/'):
+            $atts['class'] .= ' comments';
+        elseif($item->url == 'http://localhost/elfee/contact/'):
+            $atts['class'] .= ' contact';
+        endif;
     elseif($args->theme_location === 'footer_main'):
         $atts['class'] = 'a_nav_footer';
     endif;
@@ -57,33 +71,38 @@ function elfee_menu_link_class($atts, $item, $args)
 // Enlève le texte de la navigation dans le footer
 // OU insère une balise image en fonction de l'url appelée
 function elfee_menu_link_title($title, $menu_item, $args) {
-    if($args->theme_location === 'footer_main' && $menu_item->url == 'http://localhost/elfee/massage/'):
+    if($args->theme_location === 'footer_main'):
+        if($menu_item->url == 'http://localhost/elfee/massage/'):
         // $title = $menu_item->slug;
         $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_massage.png" alt="">';
-    elseif($args->theme_location === 'footer_main' && $menu_item->url == 'http://localhost/elfee/reflexologie/'):
-        $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_reflexologie.png" alt="">';
-    elseif($args->theme_location === 'footer_main' && $menu_item->url == 'http://localhost/elfee/temoignages/'):
-        $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_temoignages.png" alt="">';
-    elseif($args->theme_location === 'footer_main' && $menu_item->url == 'http://localhost/elfee/contact/'):
-        $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_contact.png" alt="">';
+        elseif($menu_item->url == 'http://localhost/elfee/reflexologie/'):
+            $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_reflexologie.png" alt="">';
+        elseif($menu_item->url == 'http://localhost/elfee/temoignages/'):
+            $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_temoignages.png" alt="">';
+        elseif($menu_item->url == 'http://localhost/elfee/contact/'):
+            $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_contact.png" alt="">';
+        endif;
     endif;
     return $title;
 }
 add_filter('nav_menu_item_title', 'elfee_menu_link_title', 10, 3);
-// //
-// function filter_nav_menu_item_args($args, $item, $depth)
-// {
-//     echo '<pre>';
-//     print_r($item); 
-//     echo'</pre>';
-//     if ($item->url == 'http://localhost/elfee/massage/')
-//     {
-//         $args->link_before = print_r($item, true); // <-- Outputs nothing
-//     }
-
-//     return $args;
+// function elfee_menu_footer_link_title($title, $menu_item, $args) {
+//     if($args->theme_location === 'header'):
+//         if($menu_item->url == 'http://localhost/elfee/massage/'):
+//         // $title = $menu_item->slug;
+//         $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_massage.png" alt="">';
+//         elseif($menu_item->url == 'http://localhost/elfee/reflexologie/'):
+//             $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_reflexologie.png" alt="">';
+//         elseif($menu_item->url == 'http://localhost/elfee/temoignages/'):
+//             $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_temoignages.png" alt="">';
+//         elseif($menu_item->url == 'http://localhost/elfee/contact/'):
+//             $title = '<img src="' . get_template_directory_uri() . '/assets/img/footer_contact.png" alt="">';
+//         endif;
+//     endif;
+//     return $title;
 // }
-// add_filter('nav_menu_item_args', 'filter_nav_menu_item_args', 10, 3);
+// add_filter('nav_menu_item_title', 'elfee_menu_footer_link_title', 10, 3);
+
 
 
 add_action('after_setup_theme', 'elfee_theme_supports');

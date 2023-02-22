@@ -138,10 +138,10 @@ img {
     font-size: 1.5em;
     transition: all .5s;
 }
-.accueil a:hover {
+.accueil:hover {
     color: var(--yellow_elfee);
 }
-.massage a:hover {
+.massage:hover {
     color: var(--orange-massage);
 }
 .reflexology a:hover {
