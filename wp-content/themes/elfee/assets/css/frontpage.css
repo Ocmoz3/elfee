@@ -1,0 +1,37 @@
+.banner {
+    width: 80%;
+}
+.card_homepage {
+    background: linear-gradient(rgba(255,255,255,.95), rgba(255,255,255,.95)), url("assets/img/crea_morgane.jpg");
+    width: 80%;
+    margin: 1.5rem auto;
+    background-color: white;
+    color: var(--main-font);
+    padding: 1.5em;
+}
+.card_homepage h3 {
+    height: 25px;
+}
+.card_homepage p {
+    padding-top: 1em;
+}
+
+.button {
+    border: none;
+    padding: 1em 1em;
+    display: block;
+    margin: 1em auto 0;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+.button:hover {
+    filter: brightness(.8);
+    transition: all .5s;
+}
+.button.btn-massage {
+    background-color: var(--orange-massage);
+}
+.button.btn-reflexology {
+    background-color: var(--green-reflexology);
+}

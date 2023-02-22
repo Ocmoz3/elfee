@@ -3,6 +3,11 @@ get_header();
 ?>
 
 <h1>Page Massage</h1>
+<div class="banner">
+    <?php 
+    // the_post_thumbnail('full', ['style' => 'height: 400px; object-fit: cover;']) ?>
+    <img src="<?php echo get_template_directory_uri() ?>/assets/img/reflexology_page.png" alt="" style="height: 400px; object-fit: cover;">
+</div>
 
 <div class="div_page_header">
     <div class="div_icone_page">
@@ -32,7 +37,7 @@ get_header();
         if ($separator) : ?>
             <img src="<?php echo esc_url($separator); ?>" alt="">
         <?php else : ?>
-            <img src="<?php echo get_template_directory_uri() ?>/assets/img/bowl.png" alt="">
+            <img src="<?php echo get_template_directory_uri() ?>/assets/img/chakras.png" alt="">
         <?php endif; ?>
     </div>
 </div>

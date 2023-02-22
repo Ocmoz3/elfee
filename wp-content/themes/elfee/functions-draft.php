@@ -68,3 +68,18 @@
 // }
 // $test = get_nav_icon();
 // echo $test;
+// <?php
+// // Define args
+// $args = array('post_type' => 'page');
+
+// // Execute query
+// $cpt_query = new WP_Query($args);
+// debug($cpt_query);
+// // Create cpt loop, with a have_posts() check!
+// if ($cpt_query->have_posts()) :
+//   while ($cpt_query->have_posts()) : $cpt_query->the_post();
+
+//the_title();
+
+//endwhile;
+// endif;
