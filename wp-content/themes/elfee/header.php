@@ -18,8 +18,10 @@
                 <div class="div_logo_header">
                     <img src="<?= get_template_directory_uri() ?>/assets/img/logo.png" alt="">
                 </div>
-                <div>
-                    <p class="p_title_header"><span class="span_elfee">Elfée</span> Morgane</p>
+                <div style="font-family: 'Karma', serif; font-weight: 600;">
+                    <div class="div_title_header">
+                        <p class="p_title_header"><span class="span_elfee">Elfée</span> Morgane</p>
+                    </div>
                     <div class="div_subtitle_header">
                         <p class="p_subtitle_header_reflexology">Réflexologue </p> - <p class="p_subtitle_header_massage"> Praticienne en massages sonores</p>
                     </div>

@@ -20,6 +20,9 @@ function elfee_theme_supports()
 function elfee_register_assets()
 {
     wp_enqueue_style('main_stylesheet', get_stylesheet_uri());
+    if(is_front_page() || is_page('massage')):
+        wp_enqueue_style('frontpage_stylesheet', get_template_directory_uri() . '/assets/css/frontpage.css');
+    endif;
     wp_enqueue_script('main_js', get_template_directory_uri() . '/assets/js/main.js');
 }
 
@@ -230,5 +233,11 @@ function elfee_get_button_homepage()
 }
 
 
-
+function debug($value) {
+    echo '<div style="border: 5px solid grey; height: 300px; overflow-y: scroll; overflow-x: hidden; margin: 2em; padding: 1em;background-color: black; color: white;">';
+    echo '<pre style="white-space: break-spaces;">';
+    print_r($value);
+    echo '</pre>';
+    echo '</div>';
+}
 

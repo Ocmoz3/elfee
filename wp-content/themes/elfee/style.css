@@ -63,7 +63,7 @@ img {
     padding: 1em;
 }
 .div_sub_header {
-    max-width: 70%;
+    max-width: 90%;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -71,6 +71,8 @@ img {
 .div_logo_title_header {
     display: flex;
     gap: 1em;
+    height: 70px;
+    align-items: center;
 }
 .div_logo_header {
     height: 70px; width: 70px;
@@ -124,6 +126,7 @@ img {
     top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background: linear-gradient(rgba(255,255,255,.95), rgba(255,255,255,.95)), url("assets/img/crea_morgane.jpg");
 }
 .ul_menu_header {
     display: flex;
@@ -158,9 +161,9 @@ img {
 }
 
 /* HOMEPAGE */
-.banner {
+/* .banner {
     width: 100%;
-}
+} */
 .div_page_header {
     display: flex;
     flex-direction: column;
@@ -197,52 +200,11 @@ img {
 .titre_description_reflexology .title {
     text-decoration-color: var(--green-reflexology);
 }
-/* .a_title_homepage.title_massage {
-    border-bottom: 3px solid var(--orange-massage);
-}
-.a_title_homepage.title_reflexology {
-    border-bottom: 3px solid var(--green-reflexology);
-} */
 
 .icone_homepage {
     width: 100px;
     margin: 0 auto;
     padding-top: 2em;
-}
-
-.card_homepage {
-    background: linear-gradient(rgba(255,255,255,.95), rgba(255,255,255,.95)), url("assets/img/crea_morgane.jpg");
-    width: 80%;
-    margin: 1.5rem auto;
-    background-color: white;
-    color: var(--main-font);
-    padding: 1.5em;
-}
-.card_homepage h3 {
-    height: 25px;
-}
-.card_homepage p {
-    padding-top: 1em;
-}
-
-.button {
-    border: none;
-    padding: 1em 1em;
-    display: block;
-    margin: 1em auto 0;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-}
-.button:hover {
-    filter: brightness(.8);
-    transition: all .5s;
-}
-.button.btn-massage {
-    background-color: var(--orange-massage);
-}
-.button.btn-reflexology {
-    background-color: var(--green-reflexology);
 }
 
 /* PAGE RÉFLEXOLOGIE */
