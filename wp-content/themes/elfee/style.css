@@ -172,6 +172,10 @@ img {
 }
 .div_icone_page {
     width: 120px;
+    margin: 0 auto;
+}
+.div_quote {
+    width: 80%;
 }
 .quote {
     font-family: 'Kirang Haerang', cursive;
@@ -194,10 +198,10 @@ img {
     text-decoration-thickness: 2px;
 }
 
-.titre_description_massage .title {
+.titre_massage .title {
     text-decoration-color: var(--orange-massage);
 }
-.titre_description_reflexology .title {
+.titre_reflexology .title {
     text-decoration-color: var(--green-reflexology);
 }
 
@@ -253,12 +257,18 @@ img {
 }
 .div_img_page_card {
     height: 60%;
+    /*  */
+    display: contents;
 }
-.img_page_card {
-    width: 100%;
-    height: 100%;
+.div_img_page_card img {
+    height: inherit;
     object-fit: cover;
 }
+/* .img_page_card { */
+    /* width: 100%; */
+    /* height: 100%; */
+    /* object-fit: cover;
+} */
 .div_text_page_card {
     background-color: white;
     height: 40%;

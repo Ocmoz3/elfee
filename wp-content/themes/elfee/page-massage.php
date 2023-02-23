@@ -2,13 +2,6 @@
 get_header();
 ?>
 
-<h1>Page Massage</h1>
-<div class="banner">
-    <?php 
-    // the_post_thumbnail('full', ['style' => 'height: 400px; object-fit: cover;']) ?>
-    <img src="<?php echo get_template_directory_uri() ?>/assets/img/reflexology_page.png" alt="" style="height: 400px; object-fit: cover;">
-</div>
-
 <div class="div_page_header">
     <div class="div_icone_page">
         <?php $icone_massage = get_field('icone');
@@ -42,7 +35,7 @@ get_header();
     </div>
 </div>
 
-<div class="titre_description_massage">
+<div class="titre_massage">
     <?php $titre_description = get_field('titre_description');
     if ($titre_description) : ?>
         <div class="page_background">
@@ -82,7 +75,8 @@ get_header();
                     if ($image_card): ?>
                     <img class="img_page_card" src="<?= get_sub_field('image_card') ?>" alt="">
                     <?php else : ?>
-                    <img src="<?= get_template_directory_uri() ?>/assets/img/bowl.png" alt="">
+                    <!-- <img class="img_page_card" src="<?= get_template_directory_uri() ?>/assets/img/bowl.png" alt=""> -->
+                    <img class="img_page_card" src="<?= get_template_directory_uri() ?>/assets/img/massage_complet.png" alt="">
                     <?php endif; ?>
                 </div>
                 <div class="div_text_page_card">
