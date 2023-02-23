@@ -1,25 +1,35 @@
 <?php
     get_header();
 ?>
-<div class="div_page_header" style="border: 1px solid red;">
+
+<?php 
+// debug(get_field_object('citation_accueil')); 
+// $object_citation = get_field_object('citation_accueil');
+// debug($object_citation['default_value']); 
+?>
+<div class="div_page_header">
     <div class="div_icone_page">
-        <?php $icone_massage = get_field('icone');
-        if ($icone_massage) : ?>
-            <img src="<?php echo esc_url($icone_massage); ?>" alt="">
+        <?php $icone_accueil = get_field('icone_accueil');
+        if ($icone_accueil) : ?>
+            <img src="<?php echo esc_url($icone_accueil); ?>" alt="">
         <?php else : ?>
             <img src="<?= get_template_directory_uri() ?>/assets/img/logo.png" alt="">
         <?php endif; ?>
     </div>
     <div class="div_quote">
-        <?php $citation_massage = get_field('citation');
-        if ($citation_massage) : ?>
-            <p class="quote">“<?php echo esc_html($citation_massage); ?>”</p>
+        <?php $citation_accueil = get_field_object('citation_accueil');
+        if ($citation_accueil['value']) : ?>
+            <p class="quote">“<?php echo esc_html($citation_accueil['value']); ?>”</p>
+        <?php elseif($citation_accueil['default_value']) : ?>
+            <p class="quote">“<?php echo esc_html($citation_accueil['default_value']); ?>”</p>
         <?php else : ?>
-            <p class="quote">“L'ego dit : "quand tout sera en place, je trouverai la paix." L'âme dit : "trouve la paix et tout se mettra en place."”</p>
+            <p class="quote">“L'ego dit : 'quand tout sera en place, je trouverai la paix.' L'âme dit : 'trouve la paix et tout se mettra en place.'”</p>
         <?php endif; ?>
-        <?php $auteur_citation_massage = get_field('auteur_citation');
-        if ($auteur_citation_massage) : ?>
-            <p class="quote"><?php echo esc_html($auteur_citation_massage); ?></p>
+        <?php $auteur_citation_accueil = get_field_object('auteur_citation_accueil');
+        if ($auteur_citation_accueil['value']) : ?>
+            <p class="quote"><?php echo esc_html($auteur_citation_accueil['value']); ?></p>
+        <?php elseif($auteur_citation_accueil['default_value']) : ?>
+            <p class="quote"><?php echo esc_html($auteur_citation_accueil['default_value']); ?></p>
         <?php else : ?>
             <p class="quote">Citation bouddhiste</p>
         <?php endif; ?>
@@ -35,44 +45,107 @@
 </div>
 
 <?php
-$args = array('post_type' => 'page');
-$cpt_query = new WP_Query($args);
-// debug($cpt_query->posts);
-$pages = $cpt_query->posts;
-debug($pages);
-foreach($pages as $page):
-    echo $page->post_name;
-    if($page->post_name == 'massage'):
-        $link = 'http://localhost/elfee/massage';
-    endif;
-endforeach;
-// if($cpt_query)
-// // Create cpt loop, with a have_posts() check!
-// if ($cpt_query->have_posts()) :
-//   while ($cpt_query->have_posts()) : $cpt_query->the_post();
-
-//the_title();
-
-//endwhile;
-// endif;
+// $args = array('post_type' => 'page');
+// $cpt_query = new WP_Query($args);
+// // debug($cpt_query->posts);
+// $pages = $cpt_query->posts;
+// debug($pages);
+// foreach($pages as $page):
+//     echo $page->post_name;
+//     if($page->post_name == 'massage'):
+//         $link = 'http://localhost/elfee/massage';
+//     endif;
+// endforeach;
 ?>
-
-
-<section>
-    <div class="titre_description_massage">
+<section class="section_massage">
+    <div class="div_icone_page">
+        <?php $icone_section_massage = get_field('icone_section');
+        if ($icone_section_massage) : ?>
+            <img src="<?php echo esc_url($icone_section_massage); ?>" alt="">
+        <?php else : ?>
+            <img src="<?php echo get_template_directory_uri() ?>/assets/img/bowl.png" alt="">
+        <?php endif; ?>
+    </div>
+    <div class="titre_massage">
+        <?php $titre_section = get_field('titre_section');
+        if ($titre_section) : ?>
+        <h2 class="title"><?php echo esc_html($titre_section) ?></h2>
+        <?php else : ?>
         <h2 class="title">Massage sonnore aux bols tibétains</h2>
+        <?php endif; ?>
     </div>
 
-    <div class="banner" style="width: 100%;"><?php 
-        // the_post_thumbnail('full', ['style' => 'height: 400px; object-fit: cover;']) ?>
-        <img src="<?php echo get_template_directory_uri() ?>/assets/img/massage_complet.png" alt="" style="height: 400px; object-fit: cover;">
+    <div class="banner">
+        <?php $image_section = get_field('image_section');
+        if ($image_section) : ?>
+            <img src="<?php echo esc_url($image_section); ?>" alt="">
+        <?php else : ?>
+            <!-- <img src="<?php echo get_template_directory_uri() ?>/assets/img/bowl.png" alt=""> -->
+            <img src="<?php echo get_template_directory_uri() ?>/assets/img/massage_complet.png" alt="">
+            <!-- <img src="<?php echo get_template_directory_uri() ?>/assets/img/massage_complet.png" alt=""> -->
+        <?php endif;
+        // the_post_thumbnail('full', ['style' => 'height: 400px; object-fit: cover;']) 
+        ?>
+        <!-- <img src="<?php echo get_template_directory_uri() ?>/assets/img/massage_complet.png" alt=""> -->
     </div>
+    <?php //debug(get_field('card_page_accueil')); ?>
+    <?php debug(get_field_object('card_page_accueil')); ?>
+
+    <?php $card_home = get_field_object('card_page_accueil'); ?>
+
+<!-- OK -->
+    <?php 
+    // function elfee_get_card_home_subfields($card) {
+    //     $card_homepage_subfields = $card['sub_fields']; 
+    //     foreach($card_homepage_subfields as $card_homepage_subfield) :
+    //         $value = $card_homepage_subfield['default_value'];
+    //         return $value;
+    //     endforeach;
+    // } 
+    ?>
+    <!-- OK -->
+
+
+    <?php function elfee_get_card_home_subfields($card) {
+        $card_homepage_subfields = $card['sub_fields']; 
+        foreach($card_homepage_subfields as $card_homepage_subfield) :
+        // foreach($card_homepage_subfields as $card_homepage_subfield => $value) :
+            $result = [];
+            // $card_homepage_subfield = $card_homepage_subfield['label'];
+            $result[$card_homepage_subfield['name']] = $card_homepage_subfield['default_value'];
+            // $value = $card_homepage_subfield['default_value'];
+            echo $card_homepage_subfield['default_value'];
+            echo $card_homepage_subfield['label'];
+            return $result;
+        endforeach;
+    } ?>
+    <?php debug(elfee_get_card_home_subfields($card_home)); ?>
+
+    <?php debug($card_home['sub_fields']); ?>
+    <?php 
+    // $card_homepage_subfields = $card_home['sub_fields']; 
+    // foreach($card_homepage_subfields as $card_homepage_subfield) :
+    //     echo $card_homepage_subfield['default_value'];
+    // endforeach;
+    ?>
 
     <div class="card_homepage">
         <div class="page_subtitle">
-            Aide au <span style="color: var(--orange-massage);">lâcher-prise</span>
-            <br>
-            invitation au <span style="color: var(--orange-massage)">voyage</span>
+            <?php 
+            // $card_home = get_field_object('card_page_accueil');
+            if ($card_home['value']['card_sous-titre_accueil']) : ?>
+                <?php echo $card_home['value']['card_sous-titre_accueil']; ?>
+            <?php elseif(elfee_get_card_home_subfields($card_home)): ?>
+                <?php echo elfee_get_card_home_subfields($card_home); ?>
+            <?php else: ?>
+                Aide au <span style="color: var(--orange-massage);">lâcher-prise</span>
+                <br>
+                invitation au <span style="color: var(--orange-massage)">voyage</span>
+            <?php endif; ?>
+            <?php //elseif($card_homepage_subfield['default_value']): ?>
+                <?php //elfee_get_card_home_subfields($card_homepage_subfield['default_value']); ?>
+            <?php //endif; ?>
+           
         </div>
         <div class="page_description">
             Sur le plan physique il permet de relâcher les tensions, faire circuler l’énergie en accompagnant la détente, il favorise aussi le système nerveux/immunitaire, et permet l'équilibre du corps.

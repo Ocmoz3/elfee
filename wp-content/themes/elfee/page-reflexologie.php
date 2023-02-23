@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<div class="titre_description_reflexology">
+<div class="titre_reflexology">
     <?php $titre_description = get_field('titre_description');
     if($titre_description): ?>
     <div class="page_background">
