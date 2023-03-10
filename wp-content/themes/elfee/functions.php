@@ -187,16 +187,36 @@ add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects', 10, 2);
 // add_filter('acf/get_sub_field', function($sub_field, $id, $field) {
 //     acf_get_sub_field('text', )
 // } );
-add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
-function my_toolbars( $toolbars ) {
-    // var_dump(func_get_args());
+
+add_filter('acf/fields/wysiwyg/toolbars' , 'my_toolbars');
+function my_toolbars($toolbars)
+{
+    
+    // debug(func_get_args());
     // die();
+    // Uncomment to view format of $toolbars
     // echo '<pre>';
-    // print_r(func_get_args());
+    //     print_r($toolbars);
     // echo '</pre>';
     // die();
-    array_unshift( $toolbars['Basic' ][1], 'forecolor' );
-    return $toolbars;
+    // Add a new toolbar called "Very Simple"
+    // - this toolbar has only 1 row of buttons
+    $toolbars['Very Simple' ] = array();
+    $toolbars['Very Simple' ][1] = array('bold' , 'italic' , 'underline' );
+
+    // Edit the "Full" toolbar and remove 'code'
+    // - delet from array code from http://stackoverflow.com/questions/7225070/php-array-delete-by-value-not-key
+    // if( ($key = array_search('code' , $toolbars['Full' ][2])) !== false )
+    // {
+        // unset( $toolbars['Full' ][2][$key] );
+        // unset( $toolbars['Full' ] );
+    // }
+
+    // remove the 'Basic' toolbar completely
+    // unset( $toolbars['Basic' ] );
+
+// return $toolbars - IMPORTANT!
+return $toolbars;
 }
 
 ///////

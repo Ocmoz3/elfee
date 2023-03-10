@@ -44,19 +44,6 @@
     </div>
 </div>
 
-<?php
-// $args = array('post_type' => 'page');
-// $cpt_query = new WP_Query($args);
-// // debug($cpt_query->posts);
-// $pages = $cpt_query->posts;
-// debug($pages);
-// foreach($pages as $page):
-//     echo $page->post_name;
-//     if($page->post_name == 'massage'):
-//         $link = 'http://localhost/elfee/massage';
-//     endif;
-// endforeach;
-?>
 <section class="section_massage">
     <div class="div_icone_page">
         <?php $icone_section_massage = get_field('icone_section');
@@ -89,7 +76,7 @@
         <!-- <img src="<?php echo get_template_directory_uri() ?>/assets/img/massage_complet.png" alt=""> -->
     </div>
     <?php //debug(get_field('card_page_accueil')); ?>
-    <?php debug(get_field_object('card_page_accueil')); ?>
+    <?php //debug(get_field_object('card_page_accueil')); ?>
 
     <?php $card_home = get_field_object('card_page_accueil'); ?>
 
@@ -104,39 +91,38 @@
     // } 
     ?>
     <!-- OK -->
-
-
-    <?php function elfee_get_card_home_subfields($card) {
-        $card_homepage_subfields = $card['sub_fields']; 
-        foreach($card_homepage_subfields as $card_homepage_subfield) :
-        // foreach($card_homepage_subfields as $card_homepage_subfield => $value) :
-            $result = [];
-            // $card_homepage_subfield = $card_homepage_subfield['label'];
-            $result[$card_homepage_subfield['name']] = $card_homepage_subfield['default_value'];
-            // $value = $card_homepage_subfield['default_value'];
-            echo $card_homepage_subfield['default_value'];
-            echo $card_homepage_subfield['label'];
-            return $result;
-        endforeach;
-    } ?>
-    <?php debug(elfee_get_card_home_subfields($card_home)); ?>
-
-    <?php debug($card_home['sub_fields']); ?>
     <?php 
-    // $card_homepage_subfields = $card_home['sub_fields']; 
-    // foreach($card_homepage_subfields as $card_homepage_subfield) :
-    //     echo $card_homepage_subfield['default_value'];
-    // endforeach;
-    ?>
 
+    $card_homepage_subfields = $card_home['sub_fields']; 
+        foreach($card_homepage_subfields as $card_homepage_subfield) :
+            // die();
+            $value = $card_homepage_subfield['default_value'];
+            // return $value;
+            echo $value;
+        endforeach;
+    // debug($card_homepage_subfield);
+    $card_home_test = get_field('card_page_accueil');
+    $card_test = have_rows('card_page_accueil');
+    // if(have_rows('card_page_accueil')):
+    if(have_rows($card_test)):
+        while( have_rows('card_page_accueil') ): the_row();
+            // debug(get_sub_field_object('card_sous-titre_accueil'));
+            $sous_titre = get_sub_field_object('card_sous-titre_accueil');
+            $default_value_sous_titre = $sous_titre['default_value'];
+            echo 'ok' . $default_value_sous_titre;
+        endwhile;
+    endif;
+    ?>
+    <?php 
+     ?>
     <div class="card_homepage">
         <div class="page_subtitle">
             <?php 
             // $card_home = get_field_object('card_page_accueil');
             if ($card_home['value']['card_sous-titre_accueil']) : ?>
                 <?php echo $card_home['value']['card_sous-titre_accueil']; ?>
-            <?php elseif(elfee_get_card_home_subfields($card_home)): ?>
-                <?php echo elfee_get_card_home_subfields($card_home); ?>
+            <?php elseif($default_value_sous_titre): ?>
+                <?php echo $default_value_sous_titre; ?>
             <?php else: ?>
                 Aide au <span style="color: var(--orange-massage);">lâcher-prise</span>
                 <br>
@@ -147,44 +133,128 @@
             <?php //endif; ?>
            
         </div>
-        <div class="page_description">
-            Sur le plan physique il permet de relâcher les tensions, faire circuler l’énergie en accompagnant la détente, il favorise aussi le système nerveux/immunitaire, et permet l'équilibre du corps.
-            Sur le plan psychique il aide à la prise de recul en favorisant le lâcher prise, invite à la méditation et à l'ancrage.
+        <div class="page_description" style="word-wrap: break-word;">
+            <?php if ($card_home['value']['card_texte_accueil']) : ?>
+                <?php echo $card_home['value']['card_texte_accueil']; ?>
+            <?php //elseif(elfee_get_card_home_subfields($card_home, 'card_texte_accueil')): ?>
+                <?php //echo elfee_get_card_home_subfields($card_home, 'card_texte_accueil'); ?>
+            <?php else: ?>
+                Sur le plan physique il permet de relâcher les tensions, faire circuler l’énergie en accompagnant la détente, il favorise aussi le système nerveux/immunitaire, et permet l'équilibre du corps.
+                Sur le plan psychique il aide à la prise de recul en favorisant le lâcher prise, invite à la méditation et à l'ancrage.
+            <?php endif; ?>
         </div>
         <button class="button btn-massage"><a href="<?= $link ?>">En savoir plus</a></button>
     </div>
 </section>
 
+
+
+<?php 
+    if(have_rows('card_page_accueil')):
+        while( have_rows('card_page_accueil') ): the_row();
+        $sous_titre = get_sub_field_object('card_sous-titre_accueil');
+        $default_value_sous_titre = $sous_titre['default_value'];
+        echo $default_value_sous_titre;
+        $texte = get_sub_field_object('card_texte_accueil');
+        $default_value_texte = $texte['default_value'];
+        echo $default_value_texte;
+        $background = get_sub_field_object('card_background_accueil');
+        $value_background = $background['value'];
+        // debug($background);
+        $link_accueil = get_sub_field_object('lien');
+        $value_link = $link_accueil['value'];
+        $default_value_link = $link_accueil['default_value'];
+        // debug($link_accueil);
+        if($value_link) {
+            $class_background = ' with_value';
+            $link_ok = $value_link;
+        }
+        elseif($default_value_link) {
+            $class_background = '';
+            $link_ok = $default_value_link;
+        }
+        else {
+            $link_ok = 'http://localhost/elfee';
+        }
+        // endif;
+        // echo $default_value_background;
+    ?>
 <section>
-    <div class="titre_description_reflexology">
+    <div class="titre_reflexology">
         <h2 class="title">Réflexologie</h2>
     </div>
 
     <div class="banner">
         <?php 
         // the_post_thumbnail('full', ['style' => 'height: 400px; object-fit: cover;']) ?>
-        <img src="<?php echo get_template_directory_uri() ?>/assets/img/reflexology_page.png" alt="" style="height: 400px; object-fit: cover;">
+        <img src="<?php echo get_template_directory_uri() ?>/assets/img/reflexology_page.png" alt="">
     </div>
 
-    <div class="card_homepage">
+    <div class="card_homepage<?php echo $class_background ?>">
         <div class="page_subtitle">
+        <?php if($sous_titre['value']): ?>
+            <?php echo $sous_titre['value']; ?>
+        <?php elseif($default_value_sous_titre): ?>
+            <?php echo $default_value_sous_titre; ?>
+        <?php else: ?>
             Soigner les <span style="color: var(--green-reflexology);">maux du corps</span>
             <br>
             soulager le <span style="color: var(--green-reflexology)">stress</span>
+        <?php endif; ?>
+            
         </div>
         <div class="page_description">
+            <?php if($texte['value']): ?>
+                <?php echo $texte['value']; ?>
+            <?php elseif($default_value_texte): ?>
+                <?php echo $default_value_texte; ?>
+            <?php else: ?>
             La  réflexologie est une thérapie partant du principe qu'il y a des zones réflexes sur les pieds et les mains correspondant à tous les organes, glandes et parties du corps.
             Pendant une séance le but est de rééquilibrer le corps de façon naturelle, en stimulant les zones réflexes.
             Elle est à la fois curative et préventive.
+            <?php endif; ?>
         </div>
-        <button class="button btn-reflexology">En savoir plus</button>
+        <button class="button btn-reflexology">
+            <a href="<?php echo $link_ok ?>">En savoir plus</a>
+        </button>
     </div>
 </section>
 
+<style>
+    .card_homepage.with_value {
+        background: linear-gradient(rgba(255,255,255,.95), rgba(255,255,255,.95)), url("<?php echo $value_background['url'] ?>");
+    }
+    .card_homepage {
+        background: linear-gradient(rgba(255,255,255,.95), rgba(255,255,255,.95)), url("<?php echo get_template_directory_uri()?>/assets/img/crea_morgane.jpg");
+        width: 80%;
+        margin: 1.5rem auto;
+        background-color: white;
+        color: var(--main-font);
+        padding: 1.5em;
+    }
+</style>
+
 <?php
-// if(have_posts()) :
+endwhile;
+endif;
+?>
+<?php
+if(have_rows('card_page_accueil_repeat')):
+    while( have_rows('card_page_accueil_repeat') ): the_row();
+        debug(get_field_object('card_page_accueil_repeat'));
+        echo '<p>'.get_sub_field('card_sous-tire_repeat').'</p>';
+        echo '<p>'.get_sub_field('card_texte_repeat').'</p>';
+        echo '<p>'.get_sub_field('card_background_repeat').'</p>';
+        echo '<p>'.get_sub_field('card_lien_repeat').'</p>';
+        debug(get_sub_field_object('card_sous-tire_repeat'));
+        debug(get_sub_field_object('test_texte'));
+    endwhile;
+endif;
+
+
 ?>
 <?php 
+// if(have_posts()) :
 // while(have_posts()) : the_post(); ?>
     <!-- <article>
         <?php 
