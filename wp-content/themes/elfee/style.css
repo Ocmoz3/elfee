@@ -194,7 +194,6 @@ img {
     padding: 1rem 0 1em;
     text-decoration: underline;
     text-underline-position: under;
-    text-decoration-color: var(--green-reflexology);
     text-decoration-thickness: 2px;
 }
 
