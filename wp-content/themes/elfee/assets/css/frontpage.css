@@ -9,20 +9,20 @@
     /* object-fit: contain; */
     object-fit: cover;
 }
-.card_homepage {
+/* .card_homepage {
     background: linear-gradient(rgba(255,255,255,.95), rgba(255,255,255,.95)), url("../img/crea_morgane.jpg");
     width: 80%;
     margin: 1.5rem auto;
     background-color: white;
     color: var(--main-font);
     padding: 1.5em;
-}
+} */
 .card_homepage h3 {
     height: 25px;
 }
-.card_homepage p {
+/* .card_homepage p {
     padding-top: 1em;
-}
+} */
 
 .button {
     border: none;

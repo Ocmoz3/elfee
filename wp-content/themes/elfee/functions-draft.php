@@ -83,3 +83,28 @@
 
 //endwhile;
 // endif;
+
+// Retrouver une valeur en fonction du type de données
+// $args = array('post_type' => 'page');
+// $cpt_query = new WP_Query($args);
+// // debug($cpt_query->posts);
+// $pages = $cpt_query->posts;
+// debug($pages);
+// foreach($pages as $page):
+//     echo $page->post_name;
+//     if($page->post_name == 'massage'):
+//         $link = 'http://localhost/elfee/massage';
+//     endif;
+// endforeach;
+
+// $args = array('post_type' => 'page');
+// $cpt_query = new WP_Query($args);
+// // debug($cpt_query->posts);
+// $pages = $cpt_query->posts;
+// debug($pages);
+// foreach($pages as $page):
+//     echo $page->post_name;
+//     if($page->post_name == 'massage'):
+//         $link = 'http://localhost/elfee/massage';
+//     endif;
+// endforeach;
